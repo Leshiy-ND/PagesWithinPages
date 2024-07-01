@@ -10,7 +10,7 @@
 
         window.addEventListener("message", function(event) {
             if (event.origin === WEBISTE_DIR + 'index.html') {
-                console.log("Received message from parent:", event.data);
+                console.log("Cards received message from parent:", event.data);
                 event.source.postMessage("Hello from iframe", event.origin);
             }
         });

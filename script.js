@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // })
     }
     window.addEventListener('message', (event) => {
-        console.log('Received message:', event.data)
+        console.log('Index received message from cards:', event.data)
     })
 
     document.body.appendChild(cards_page)
