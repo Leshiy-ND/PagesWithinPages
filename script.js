@@ -17,8 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // })
     }
     window.addEventListener('message', (event) => {
-        let message = JSON.parse(event.data)
-        console.log("Index received message from cards:", message.text);
+        console.log("Index received message from:", event.origin);
+
+        if (event.origin === WEBISTE_DIR + 'cards.html') {
+            let message = JSON.parse(event.data)
+            console.log("Index received message from cards:", message.text);
+        }
     })
 
     document.body.appendChild(cards_page)
