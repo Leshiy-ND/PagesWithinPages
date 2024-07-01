@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards</title>
-    <script>
-        let curentURL = window.location.href
-        let WEBISTE_DIR = curentURL.substring(0, curentURL.lastIndexOf('/') + 1)
-
-        window.addEventListener("message", function(event) {
-            if (event.origin === 'https://leshiy-nd.github.io') {
-            let message = JSON.parse(event.data)
-                console.log("Cards received message from parent:", message.text);
-
-                let new_message = { cards: [] }
-                document.querySelectorAll('[card]').forEach(card => {
-                    let card_name = card.querySelector('h2').textContent
-                    new_message.cards.push(card_name)
-                })
-                event.source.postMessage(JSON.stringify(new_message), event.origin);
-            }
-        });
-    </script>
+    <script src="./cards.js"> </script>
 </head>
 <body>
     <h1>Cards</h1>
