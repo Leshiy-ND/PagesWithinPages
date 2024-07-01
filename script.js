@@ -9,14 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(cards_page)
 
     cards_page.onload = () => {
-        cards_page.contentWindow.postMessage('Hello from parent', WEBISTE_DIR + 'cards.html')
+        let message = { text: 'Hello from parent' }
+        cards_page.contentWindow.postMessage(JSON.stringify(message), WEBISTE_DIR + 'cards.html')
     
         // cards_document.body.querySelectorAll('[card]').forEach(card => {
         //     console.log('Card')
         // })
     }
     window.addEventListener('message', (event) => {
-        console.log('Index received message from cards:', event.data)
+        if (event.origin === WEBISTE_DIR + 'cards.html') {
+            let message = JSON.parse(event.data)
+            console.log("Index received message from cards:", message.text);
+        }
     })
 
     document.body.appendChild(cards_page)
