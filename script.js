@@ -26,10 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('message', (event) => {
     if (event.origin === 'https://leshiy-nd.github.io') {
-        let message = false
+        let message = null
         try {
             message = JSON.parse(event.data)
-        } catch (error) {}
+        } catch (error) {
+            message = false
+        }
 
         if (message == false) return
         
