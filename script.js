@@ -10,12 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('message', (event) => {
         if (event.origin === 'https://leshiy-nd.github.io') {
-            let message
+            let message = false
             try {
                 message = JSON.parse(event.data)
-            } catch (error) {
-                return
-            }
+            } catch (error) {}
+
+            if (message == false) return
+            
             console.log("Received cards:");
             message.cards.forEach(card => {
                 console.log(card)
