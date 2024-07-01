@@ -8,22 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
     cards_page.src = './cards.html'
     console.log(cards_page)
 
-    cards_page.onload = () => {
-        let message = { text: 'Hello from parent' }
-        cards_page.contentWindow.postMessage(JSON.stringify(message), WEBISTE_DIR + 'cards.html')
-    
-        // cards_document.body.querySelectorAll('[card]').forEach(card => {
-        //     console.log('Card')
-        // })
-    }
     window.addEventListener('message', (event) => {
         console.log("Index received message from:", event.origin);
 
-        if (event.origin === WEBISTE_DIR + 'cards.html') {
+        if (event.origin === 'https://leshiy-nd.github.io') {
             let message = JSON.parse(event.data)
             console.log("Index received message from cards:", message.text);
         }
     })
 
     document.body.appendChild(cards_page)
+
+    let button = document.createElement('button')
+    button.textContent = 'Send hello'
+
+    button.onclick = () => {
+        let message = { text: 'Hello from parent' }
+        cards_page.contentWindow.postMessage(JSON.stringify(message), 'https://leshiy-nd.github.io')
+    }
+
+    document.body.appendChild(button)
 })

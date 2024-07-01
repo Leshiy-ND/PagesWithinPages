@@ -9,7 +9,7 @@
         let WEBISTE_DIR = curentURL.substring(0, curentURL.lastIndexOf('/') + 1)
 
         window.addEventListener("message", function(event) {
-            if (event.origin === WEBISTE_DIR + 'index.html') {
+            if (event.origin === 'https://leshiy-nd.github.io') {
             let message = JSON.parse(event.data)
                 console.log("Cards received message from parent:", message.text);
 
