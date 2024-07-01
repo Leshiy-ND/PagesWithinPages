@@ -12,12 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Index received message from:", event.origin);
 
         if (event.origin === 'https://leshiy-nd.github.io') {
-            let message = JSON.parse(event.data)
-            console.log("Index received message from cards:", message.text);
+            try {
+                let message = JSON.parse(event.data)
+            } catch (error) {
+                return
+            }
+            console.log("Received cards:");
+            message.cards.forEach(card => {
+                console.log(card)
+            });
         }
     })
 
-    document.body.appendChild(cards_page)
+    // document.body.appendChild(cards_page)
 
     let button = document.createElement('button')
     button.textContent = 'Send hello'
