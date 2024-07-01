@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <script>
+        let curentURL = window.location.href
+        let WEBISTE_DIR = curentURL.substring(0, curentURL.lastIndexOf('/') + 1)
+
+        window.addEventListener("message", function(event) {
+            if (event.origin === WEBISTE_DIR + 'index.html') {
+                console.log("Received message from parent:", event.data);
+                event.source.postMessage("Hello from iframe", event.origin);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Cards</h1>
+    <p>Lerum lorum blah-blah-blah 1</p>
+    <div class="card">
+        <h2>Fire Card</h2>
+        <p>Throws fireballs.</p>
+    </div>
+    <div class="card">
+        <h2>Ice Card</h2>
+        <p>Throws ice spikes.</p>
+    </div>
+</body>
+</html>
