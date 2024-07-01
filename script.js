@@ -37,6 +37,8 @@ window.addEventListener('message', (event) => {
         message.cards.forEach(card => {
             console.log(card)
         });
-        document.querySelector('.iframe_cards').remove()
+        document.querySelectorAll('.iframe_cards').forEach(frame => {
+            frame.remove()
+        })
     }
 })
