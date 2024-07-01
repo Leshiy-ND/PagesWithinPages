@@ -6,11 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cards_page = document.createElement('iframe')
     cards_page.src = './cards.html'
-    console.log(cards_page)
+    cards_page.style.display = 'none'
 
     window.addEventListener('message', (event) => {
-        console.log("Index received message from:", event.origin);
-
         if (event.origin === 'https://leshiy-nd.github.io') {
             try {
                 let message = JSON.parse(event.data)
@@ -21,10 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             message.cards.forEach(card => {
                 console.log(card)
             });
+            cards_page.remove()
         }
     })
 
-    // document.body.appendChild(cards_page)
+    document.body.appendChild(cards_page)
 
     let button = document.createElement('button')
     button.textContent = 'Send hello'
