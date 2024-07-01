@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let button = document.createElement('button')
     button.textContent = 'Send hello'
+    
+    let cards_page = document.createElement('iframe')
+    cards_page.className = 'iframe_cards'
+    cards_page.src = './cards.html'
+    cards_page.style.display = 'none'
+    document.body.appendChild(cards_page)
 
     button.onclick = () => {
-        let cards_page = document.createElement('iframe')
-        cards_page.className = 'iframe_cards'
-        cards_page.src = './cards.html'
-        cards_page.style.display = 'none'
-        document.body.appendChild(cards_page)
 
         let message = { text: 'Hello from parent' }
         cards_page.contentWindow.postMessage(JSON.stringify(message), 'https://leshiy-nd.github.io')
@@ -37,8 +38,6 @@ window.addEventListener('message', (event) => {
         message.cards.forEach(card => {
             console.log(card)
         });
-        document.querySelectorAll('.iframe_cards').forEach(frame => {
-            frame.remove()
-        })
+        document.querySelector('.iframe_cards').remove()
     }
 })
