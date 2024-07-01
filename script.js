@@ -46,7 +46,7 @@ window.addEventListener('message', (event) => {
 
         message.cards.forEach(card => {
             let card_elem = document.createElement('div')
-            name.textContent = card.name
+            name.className = 'card'
             document.body.appendChild(card_elem)
 
             let name = document.createElement('h2')
