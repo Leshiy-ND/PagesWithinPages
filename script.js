@@ -50,12 +50,13 @@ window.addEventListener('message', (event) => {
             document.body.appendChild(card_elem)
 
             let name = document.createElement('h2')
-            name.textContent = card.name
+            name.textContent = card
+            // name.textContent = card.name
             card_elem.appendChild(name)
 
-            let description = document.createElement('p')
-            description.textContent = card.description
-            card_elem.appendChild(description)
+            // let description = document.createElement('p')
+            // description.textContent = card.description
+            // card_elem.appendChild(description)
         });
         document.querySelector('.iframe_cards').remove()
     }

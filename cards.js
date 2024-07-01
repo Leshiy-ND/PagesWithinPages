@@ -5,10 +5,11 @@ window.addEventListener("message", function(event) {
 
         let new_message = { cards: [] }
         document.querySelectorAll('.card').forEach(card_div => {
-            let card = { name: '', description: '' }
-            card.name        = card_div.querySelector('h2').textContent
-            card.description = card_div.querySelector('p').textContent
-            new_message.cards.push(card)
+            // let card = { name: '', description: '' }
+            // card.name        = card_div.querySelector('h2').textContent
+            // card.description = card_div.querySelector('p').textContent
+            // new_message.cards.push(card)
+            new_message.cards.push(card_div.querySelector('h2').textContent)
         })
         event.source.postMessage(JSON.stringify(new_message), event.origin);
     }
