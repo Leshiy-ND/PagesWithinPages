@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     let button = document.createElement('button')
-    button.textContent = 'Send hello'
+    button.textContent = 'Get cards'
     
     button.onclick = () => {
         button.remove()
@@ -26,7 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(button)
 
-    console.log(HelloMessage, 'from script.js')
+    let tryHello = document.createElement('button')
+    tryHello.textContent = 'Say hello'
+    tryHello.onclick = function() {
+        console.log(HelloMessage, 'from script.js')
+    }
+    
 })
 
 
