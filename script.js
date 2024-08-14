@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tryHello.onclick = function() {
         console.log(HelloMessage, 'from script.js')
     }
-    
+    document.body.appendChild(tryHello)
 })
 
 
