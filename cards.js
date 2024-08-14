@@ -13,3 +13,7 @@ window.addEventListener("message", function(event) {
         event.source.postMessage(JSON.stringify(new_message), event.origin);
     }
 });
+
+const HelloMessage = '(!) Hello Message'
+
+console.log(HelloMessage, 'from cards.js')

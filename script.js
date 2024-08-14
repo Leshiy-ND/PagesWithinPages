@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.body.appendChild(button)
+
+    console.log(HelloMessage, 'from script.js')
 })
 
 
